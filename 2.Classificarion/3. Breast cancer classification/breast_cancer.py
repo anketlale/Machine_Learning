@@ -1,6 +1,9 @@
+from sklearn.metrics import classification_report
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
+
 dataset = pd.read_csv('C:/Users/Anket Lale/Desktop/breast_cancer.csv')
 
 x = dataset.iloc[:, 2:-1].values
@@ -32,3 +35,8 @@ y_pred = classifier.predict(x_test)
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
+
+#hitmap	
+print(sns.heatmap(cm,annot=True))
+
+print(classification_report(y_test , y_pred))
